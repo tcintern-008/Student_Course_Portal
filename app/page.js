@@ -1,6 +1,7 @@
-import Link from "next/link";
 import courses from "@/data/courses";
 import CourseCard from "@/components/CourseCard";
+import SectionTitle from "@/components/SectionTitle";
+import Button from "@/components/Button";
 
 export default function Home() {
   const featured = courses.slice(0, 3);
@@ -19,28 +20,16 @@ export default function Home() {
           your career in tech.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link
-            href="/courses"
-            className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
-          >
-            Browse Courses
-          </Link>
-          <Link
-            href="/instructors"
-            className="rounded-full border border-border px-6 py-3 text-sm font-semibold hover:border-blue-600 hover:text-blue-600 transition-colors"
-          >
-            Meet Instructors
-          </Link>
+          <Button href="/courses">Browse Courses</Button>
+          <Button href="/instructors" variant="outline">Meet Instructors</Button>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 pb-20">
-        <div className="mb-8 flex items-end justify-between">
-          <h2 className="text-2xl font-bold">Featured Courses</h2>
-          <Link href="/courses" className="text-sm font-semibold text-blue-600">
-            View all →
-          </Link>
-        </div>
+        <SectionTitle
+          title="Featured Courses"
+          action={<Button href="/courses" variant="link">View all →</Button>}
+        />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((course) => (
             <CourseCard key={course.slug} course={course} />

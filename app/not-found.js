@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "@/components/Button";
 
 export default function NotFound() {
   return (
@@ -8,12 +8,7 @@ export default function NotFound() {
       <p className="mt-2 text-foreground/70">
         The page you're looking for doesn't exist or may have been moved.
       </p>
-      <Link
-        href="/"
-        className="mt-8 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
-      >
-        Back to Home
-      </Link>
+      <Button href="/" className="mt-8">Back to Home</Button>
     </div>
   );
 }

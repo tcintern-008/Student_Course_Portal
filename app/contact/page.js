@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Button from "@/components/Button";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -66,12 +67,7 @@ export default function ContactPage() {
               placeholder="How can we help?"
             />
           </div>
-          <button
-            type="submit"
-            className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
-          >
-            Send Message
-          </button>
+          <Button type="submit">Send Message</Button>
         </form>
       )}
     </div>
