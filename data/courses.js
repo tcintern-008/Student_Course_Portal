@@ -57,3 +57,27 @@ const courses = [
 ];
 
 export default courses;
+
+// Simulates fetching from a real backend/API. Swap this out later
+// once the course data actually lives in a database.
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function getCourses() {
+  await delay(400);
+  return courses;
+}
+
+export async function getCourseBySlug(slug) {
+  await delay(400);
+  return courses.find((course) => course.slug === slug) || null;
+}
+
+export async function getRelatedCourses(slug, level) {
+  await delay(200);
+  return courses
+    .filter((c) => c.slug !== slug && c.level === level)
+    .concat(courses.filter((c) => c.slug !== slug && c.level !== level))
+    .slice(0, 3);
+}

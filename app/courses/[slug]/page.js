@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import courses from "@/data/courses";
+import courses, { getCourseBySlug, getRelatedCourses } from "@/data/courses";
 import Button from "@/components/Button";
 import CourseCard from "@/components/CourseCard";
 import SectionTitle from "@/components/SectionTitle";
@@ -10,20 +10,17 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const course = courses.find((c) => c.slug === slug);
+  const course = await getCourseBySlug(slug);
   return { title: course ? `${course.title} | Student Course Portal` : "Course Not Found" };
 }
 
 export default async function CourseDetailsPage({ params }) {
   const { slug } = await params;
-  const course = courses.find((c) => c.slug === slug);
+  const course = await getCourseBySlug(slug);
 
   if (!course) notFound();
 
-  const related = courses
-    .filter((c) => c.slug !== course.slug && c.level === course.level)
-    .concat(courses.filter((c) => c.slug !== course.slug && c.level !== course.level))
-    .slice(0, 3);
+  const related = await getRelatedCourses(course.slug, course.level);
 
   return (
     <div className="mx-auto max-w-4xl px-5 py-16">

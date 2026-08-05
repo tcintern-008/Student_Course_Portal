@@ -32,3 +32,12 @@ const instructors = [
 ];
 
 export default instructors;
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export async function getInstructors() {
+  await delay(400);
+  return instructors;
+}

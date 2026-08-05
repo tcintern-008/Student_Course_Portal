@@ -1,9 +1,10 @@
-import courses from "@/data/courses";
+import { getCourses } from "@/data/courses";
 import CourseCard from "@/components/CourseCard";
 import SectionTitle from "@/components/SectionTitle";
 import Button from "@/components/Button";
 
-export default function Home() {
+export default async function Home() {
+  const courses = await getCourses();
   const featured = courses.slice(0, 3);
 
   return (

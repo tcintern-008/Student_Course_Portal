@@ -1,4 +1,4 @@
-import courses from "@/data/courses";
+import { getCourses } from "@/data/courses";
 import SectionTitle from "@/components/SectionTitle";
 import CourseSearch from "@/components/CourseSearch";
 
@@ -6,7 +6,9 @@ export const metadata = {
   title: "Courses | Student Course Portal",
 };
 
-export default function CoursesPage() {
+export default async function CoursesPage() {
+  const courses = await getCourses();
+
   return (
     <div className="mx-auto max-w-6xl px-5 py-16">
       <SectionTitle
