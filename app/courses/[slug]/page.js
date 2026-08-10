@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
-import courses, { getCourseBySlug, getRelatedCourses } from "@/data/courses";
+import { getCourses, getCourseBySlug, getRelatedCourses } from "@/data/courses";
 import Button from "@/components/Button";
 import CourseCard from "@/components/CourseCard";
 import SectionTitle from "@/components/SectionTitle";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const courses = await getCourses();
   return courses.map((course) => ({ slug: course.slug }));
 }
 

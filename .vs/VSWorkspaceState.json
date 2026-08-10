@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.next",
+    "\\.next\\dev",
+    "\\app",
+    "\\app\\courses",
+    "\\app\\courses\\[slug]",
+    "\\components",
+    "\\data",
+    "\\lib"
+  ],
+  "SelectedNode": "\\lib\\courseApi.js",
+  "PreviewInSolutionExplorer": false
+}

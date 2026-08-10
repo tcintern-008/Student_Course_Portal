@@ -1,6 +1,7 @@
 import { getCourses } from "@/data/courses";
 import SectionTitle from "@/components/SectionTitle";
 import CourseSearch from "@/components/CourseSearch";
+import CourseManagerPanel from "@/components/CourseManagerPanel";
 
 export const metadata = {
   title: "Courses | Student Course Portal",
@@ -16,6 +17,7 @@ export default async function CoursesPage() {
         subtitle="Pick a track and start learning. Click any course to see the full breakdown."
       />
       <CourseSearch courses={courses} />
+      <CourseManagerPanel courses={courses} />
     </div>
   );
 }
