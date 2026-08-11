@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using CourseApi.Models;
+using CourseApi.Dtos;
 using CourseApi.Services;
 
 namespace CourseApi.Controllers;
@@ -16,16 +16,26 @@ public class CoursesController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAll()
+    public async Task<IActionResult> GetAll()
     {
-        var courses = _courseService.GetAll();
+        var courses = await _courseService.GetAllAsync();
         return Ok(courses);
     }
 
-    [HttpGet("{id}")]
-    public IActionResult GetById(int id)
+    [HttpGet("search")]
+    public async Task<IActionResult> Search([FromQuery] string? query, [FromQuery] string? level, [FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
-        var course = _courseService.GetById(id);
+        if (page < 1) page = 1;
+        if (pageSize < 1 || pageSize > 50) pageSize = 10;
+
+        var result = await _courseService.SearchAsync(query, level, page, pageSize);
+        return Ok(result);
+    }
+
+    [HttpGet("{slug}")]
+    public async Task<IActionResult> GetBySlug(string slug)
+    {
+        var course = await _courseService.GetBySlugAsync(slug);
         if (course == null)
         {
             return NotFound(new { message = "Course not found" });
@@ -35,16 +45,21 @@ public class CoursesController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Add([FromBody] Course course)
+    public async Task<IActionResult> Add([FromBody] CourseUpsertDto dto)
     {
-        var created = _courseService.Add(course);
-        return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+        var created = await _courseService.AddAsync(dto);
+        if (created == null)
+        {
+            return Conflict(new { message = "A course with this slug already exists" });
+        }
+
+        return CreatedAtAction(nameof(GetBySlug), new { slug = created.Slug }, created);
     }
 
-    [HttpPut("{id}")]
-    public IActionResult Update(int id, [FromBody] Course course)
+    [HttpPut("{slug}")]
+    public async Task<IActionResult> Update(string slug, [FromBody] CourseUpsertDto dto)
     {
-        var updated = _courseService.Update(id, course);
+        var updated = await _courseService.UpdateAsync(slug, dto);
         if (updated == null)
         {
             return NotFound(new { message = "Course not found" });
@@ -53,10 +68,10 @@ public class CoursesController : ControllerBase
         return Ok(updated);
     }
 
-    [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    [HttpDelete("{slug}")]
+    public async Task<IActionResult> Delete(string slug)
     {
-        var deleted = _courseService.Delete(id);
+        var deleted = await _courseService.DeleteAsync(slug);
         if (!deleted)
         {
             return NotFound(new { message = "Course not found" });

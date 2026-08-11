@@ -7,9 +7,11 @@
     "\\app\\courses",
     "\\app\\courses\\[slug]",
     "\\components",
+    "\\CourseApi",
+    "\\CourseApi\\bin",
     "\\data",
     "\\lib"
   ],
-  "SelectedNode": "\\lib\\courseApi.js",
+  "SelectedNode": "\\components\\CourseManagerPanel.jsx",
   "PreviewInSolutionExplorer": false
 }

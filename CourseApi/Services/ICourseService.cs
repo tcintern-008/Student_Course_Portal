@@ -1,12 +1,13 @@
-using CourseApi.Models;
+using CourseApi.Dtos;
 
 namespace CourseApi.Services;
 
 public interface ICourseService
 {
-    List<Course> GetAll();
-    Course? GetById(int id);
-    Course Add(Course course);
-    Course? Update(int id, Course course);
-    bool Delete(int id);
+    Task<List<CourseDto>> GetAllAsync();
+    Task<CourseDto?> GetBySlugAsync(string slug);
+    Task<CourseDto?> AddAsync(CourseUpsertDto dto);
+    Task<CourseDto?> UpdateAsync(string slug, CourseUpsertDto dto);
+    Task<bool> DeleteAsync(string slug);
+    Task<PagedResult<CourseDto>> SearchAsync(string? query, string? level, int page, int pageSize);
 }

@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Think and Code internship\\student-course-portal\\student-course-portal\\app\\courses\\loading.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\courses\\loading.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Think and Code internship\\student-course-portal\\student-course-portal\\lib\\courseApi.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:lib\\courseApi.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Think and Code internship\\student-course-portal\\student-course-portal\\ .env.local||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative: .env.local||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Think and Code internship\\student-course-portal\\student-course-portal\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Think and Code internship\\student-course-portal\\student-course-portal\\app\\courses\\loading.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:app\\courses\\loading.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Think and Code internship\\student-course-portal\\student-course-portal\\app\\courses\\[slug]\\page.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -47,6 +55,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "courseApi.js",
+              "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\lib\\courseApi.js",
+              "RelativeDocumentMoniker": "lib\\courseApi.js",
+              "ToolTip": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\lib\\courseApi.js",
+              "RelativeToolTip": "lib\\courseApi.js",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-08-10T10:28:17.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "package.json",
+              "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-10T09:00:32.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "loading.js",
               "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\app\\courses\\loading.js",
               "RelativeDocumentMoniker": "app\\courses\\loading.js",
@@ -59,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "page.js",
               "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\app\\courses\\[slug]\\page.js",
               "RelativeDocumentMoniker": "app\\courses\\[slug]\\page.js",
@@ -71,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "courses.js",
               "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\data\\courses.js",
               "RelativeDocumentMoniker": "data\\courses.js",
@@ -83,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "page.js",
               "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\app\\courses\\page.js",
               "RelativeDocumentMoniker": "app\\courses\\page.js",
@@ -95,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": ".gitignore",
               "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -113,14 +147,14 @@
               "RelativeDocumentMoniker": " .env.local",
               "ToolTip": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\ .env.local",
               "RelativeToolTip": " .env.local",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2026-08-10T06:57:35.874Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "jsconfig.json",
               "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\jsconfig.json",
               "RelativeDocumentMoniker": "jsconfig.json",
@@ -132,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "CoursesManager.jsx",
               "DocumentMoniker": "D:\\Think and Code internship\\student-course-portal\\student-course-portal\\components\\CoursesManager.jsx",
               "RelativeDocumentMoniker": "components\\CoursesManager.jsx",
