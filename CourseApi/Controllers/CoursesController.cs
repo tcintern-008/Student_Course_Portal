@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using CourseApi.Dtos;
 using CourseApi.Services;
@@ -44,6 +45,7 @@ public class CoursesController : ControllerBase
         return Ok(course);
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] CourseUpsertDto dto)
     {
@@ -56,6 +58,7 @@ public class CoursesController : ControllerBase
         return CreatedAtAction(nameof(GetBySlug), new { slug = created.Slug }, created);
     }
 
+    [Authorize]
     [HttpPut("{slug}")]
     public async Task<IActionResult> Update(string slug, [FromBody] CourseUpsertDto dto)
     {
@@ -68,6 +71,7 @@ public class CoursesController : ControllerBase
         return Ok(updated);
     }
 
+    [Authorize(Roles = "admin")]
     [HttpDelete("{slug}")]
     public async Task<IActionResult> Delete(string slug)
     {

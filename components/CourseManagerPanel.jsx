@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createCourse, updateCourse, deleteCourse } from "@/lib/courseApi";
+import { useAuth } from "@/context/AuthContext";
 
 const emptyForm = {
   slug: "",
@@ -17,10 +18,28 @@ const emptyForm = {
 
 export default function CourseManagerPanel({ courses }) {
   const router = useRouter();
+  const { user, logout, loading } = useAuth();
   const [form, setForm] = useState(emptyForm);
   const [editingSlug, setEditingSlug] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
+
+  if (loading) {
+    return null;
+  }
+
+  if (!user) {
+    return (
+      <div className="mt-16 rounded-2xl border border-border bg-card p-6 text-center">
+        <p className="text-sm text-foreground/70">
+          Log in to add, edit, or delete courses.
+        </p>
+        <a href="/login" className="mt-3 inline-block rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white">
+          Log In
+        </a>
+      </div>
+    );
+  }
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -89,7 +108,13 @@ export default function CourseManagerPanel({ courses }) {
 
   return (
     <div className="mt-16 rounded-2xl border border-border bg-card p-6">
-      <h2 className="text-lg font-bold">Manage Courses</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-bold">Manage Courses</h2>
+        <div className="flex items-center gap-3 text-sm text-foreground/60">
+          <span>{user.name} ({user.role})</span>
+          <button onClick={logout} className="text-red-500">Log Out</button>
+        </div>
+      </div>
 
       <form onSubmit={handleSubmit} className="mt-4 grid gap-3 sm:grid-cols-2">
         <input name="slug" placeholder="slug (e.g. web-development)" value={form.slug} onChange={handleChange} disabled={!!editingSlug} required className="rounded-lg border border-border px-3 py-2 text-sm" />
