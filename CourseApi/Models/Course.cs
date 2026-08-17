@@ -32,4 +32,7 @@ public class Course
 
     public ICollection<CourseTopic> Topics { get; set; } = new List<CourseTopic>();
     public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
+
+    public int? CreatedByUserId { get; set; }
+    public User? CreatedByUser { get; set; }
 }

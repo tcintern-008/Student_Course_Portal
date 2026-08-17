@@ -12,6 +12,7 @@ public class CourseDto
     public string Summary { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public List<string> Topics { get; set; } = new();
+    public int? CreatedByUserId { get; set; }
 }
 
 public class CourseUpsertDto

@@ -68,6 +68,7 @@ public class AuthService : IAuthService
         var token = GenerateJwtToken(user);
         return new AuthResponseDto
         {
+            Id = user.Id,
             Token = token,
             Name = user.Name,
             Email = user.Email,
@@ -85,6 +86,7 @@ public class AuthService : IAuthService
         {
             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim("name", user.Name),
             new Claim(ClaimTypes.Role, user.Role)
         };

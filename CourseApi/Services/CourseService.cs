@@ -33,7 +33,7 @@ public class CourseService : ICourseService
         return course == null ? null : ToDto(course);
     }
 
-    public async Task<CourseDto?> AddAsync(CourseUpsertDto dto)
+    public async Task<CourseDto?> AddAsync(CourseUpsertDto dto, int? userId)
     {
         var slugExists = await _db.Courses.AnyAsync(c => c.Slug == dto.Slug);
         if (slugExists)
@@ -52,7 +52,8 @@ public class CourseService : ICourseService
             Level = dto.Level,
             Summary = dto.Summary,
             Description = dto.Description,
-            Topics = dto.Topics.Select(t => new CourseTopic { Text = t }).ToList()
+            Topics = dto.Topics.Select(t => new CourseTopic { Text = t }).ToList(),
+            CreatedByUserId = userId
         };
 
         _db.Courses.Add(course);
@@ -164,7 +165,8 @@ public class CourseService : ICourseService
             Level = course.Level,
             Summary = course.Summary,
             Description = course.Description,
-            Topics = course.Topics.Select(t => t.Text).ToList()
+            Topics = course.Topics.Select(t => t.Text).ToList(),
+            CreatedByUserId = course.CreatedByUserId
         };
     }
 }

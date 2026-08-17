@@ -71,7 +71,7 @@ export default function CourseManagerPanel({ courses }) {
       setEditingSlug(null);
       router.refresh();
     } catch (err) {
-      setError(err.message);
+      setError(errorMessageFor(err));
     } finally {
       setSubmitting(false);
     }
@@ -102,8 +102,22 @@ export default function CourseManagerPanel({ courses }) {
       await deleteCourse(slug);
       router.refresh();
     } catch (err) {
-      setError(err.message);
+      setError(errorMessageFor(err));
     }
+  }
+
+  function errorMessageFor(err) {
+    if (err.status === 401) {
+      return "Your session has expired. Please log in again.";
+    }
+    if (err.status === 403) {
+      return "You don't have permission to do that.";
+    }
+    return err.message;
+  }
+
+  function canModify(course) {
+    return user.role === "admin" || course.createdByUserId === user.id;
   }
 
   return (
@@ -144,10 +158,14 @@ export default function CourseManagerPanel({ courses }) {
         {courses.map((course) => (
           <li key={course.slug} className="flex items-center justify-between py-3 text-sm">
             <span>{course.title}</span>
-            <div className="flex gap-3">
-              <button onClick={() => startEdit(course)} className="text-blue-600">Edit</button>
-              <button onClick={() => handleDelete(course.slug)} className="text-red-500">Delete</button>
-            </div>
+            {canModify(course) ? (
+              <div className="flex gap-3">
+                <button onClick={() => startEdit(course)} className="text-blue-600">Edit</button>
+                <button onClick={() => handleDelete(course.slug)} className="text-red-500">Delete</button>
+              </div>
+            ) : (
+              <span className="text-xs text-foreground/40">Not yours</span>
+            )}
           </li>
         ))}
       </ul>
