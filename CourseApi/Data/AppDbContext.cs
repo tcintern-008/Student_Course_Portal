@@ -26,6 +26,12 @@ public class AppDbContext : DbContext
             .HasForeignKey(c => c.InstructorId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        modelBuilder.Entity<Course>()
+            .HasOne(c => c.CreatedByUser)
+            .WithMany()
+            .HasForeignKey(c => c.CreatedByUserId)
+            .OnDelete(DeleteBehavior.SetNull);
+
         modelBuilder.Entity<CourseTopic>()
             .HasOne(t => t.Course)
             .WithMany(c => c.Topics)
@@ -55,11 +61,5 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<User>()
             .HasIndex(u => u.Email)
             .IsUnique();
-
-        modelBuilder.Entity<Course>()
-            .HasOne(c => c.CreatedByUser)
-            .WithMany()
-            .HasForeignKey(c => c.CreatedByUserId)
-            .OnDelete(DeleteBehavior.SetNull);
     }
 }
